@@ -80,14 +80,14 @@ const Hero = () => {
               className="px-6 py-3 bg-green-500 hover:bg-green-600 text-slate-900 font-semibold rounded-lg transition-colors flex items-center gap-2"
             >
               <TerminalSquare size={20} />
-              Loyihalarni ko'rish
+              Projects
             </button>
             <button
               onClick={() => scrollToSection('contact')}
               className="px-6 py-3 border border-slate-700 hover:border-slate-500 text-slate-300 font-semibold rounded-lg transition-colors flex items-center gap-2"
             >
               <Send size={18} />
-              Bog'lanish
+              Contact
             </button>
           </div>
         </motion.div>
