@@ -1,3 +1,4 @@
+@import url('https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css');
 @import "tailwindcss";
 
 /* Butun sayt uchun qora fon (Dark Mode) o'rnatamiz */
