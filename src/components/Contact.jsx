@@ -51,7 +51,7 @@ const Contact = () => {
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold text-slate-100 mb-4 flex items-center justify-center gap-3 tracking-wide">
             <Mail className="text-blue-500" />
-            Bog'lanish
+            Contact
           </h2>
           <p className="text-slate-400 tracking-wide">
             Yangi loyihalar, ma'lumotlar tahlili va backend arxitekturasi bo'yicha hamkorlikka tayyorman.
