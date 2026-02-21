@@ -18,8 +18,8 @@ function App() {
   
       <footer className="py-6 text-center border-t border-slate-900 bg-slate-950">
         <p className="text-slate-500 text-sm font-mono">
-          &copy; {currentYear} All rights reserved <br/>
-          <span className="text-xs text-slate-600"> Developed by & KAMALOVIC </span>
+          &copy; {currentYear} Kamalovic <br/>
+          <span className="text-xs text-slate-600"> All rights reserved </span>
         </p>
       </footer>
     </div>
