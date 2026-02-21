@@ -1,16 +1,33 @@
-# React + Vite
+# Data Analyst & Backend Engineer Portfolio 🚀
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## ✨ Imkoniyatlar va Bo'limlar
 
-Currently, two official plugins are available:
+* **Hero Section:** Terminal uslubidagi kod yozish animatsiyasi.
+* **Experience Section:** Timeline ko'rinishidagi xronologik tarix.
+* **Projects Section** 
+* **Stats Section:** LeetCode'da ishlangan masalalar va algoritmik mahoratni ko'rsatuvchi interaktiv Recharts grafigi. Shuningdek, ma'lumotlar matematik tahlilida foydalaniladigan chiziqli regressiya $y=\beta_0+\beta_1x+\epsilon$ va o'rtacha kvadratik og'ish $\sigma=\sqrt{\frac{\sum(x_i-\mu)^2}{N}}$ formulasi.
+* **Contact Section:** Backend yozmasdan, Gmail pochtaga xabar yuboruvchi forma (Web3Forms API yordamida).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠 Texnologiyalar Steki
 
-## React Compiler
+* **Framework:** React.js (`Vite`)
+* **Design va UI:** Tailwind CSS v4.0
+* **Animation:** Framer Motion
+* **Graph:** Recharts
+* **Math:** KaTeX / react-katex (library)
+* **Icons:** Lucide React
+* **Form:** Web3Forms
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
+## ⚙️ (Local) Muhitda Ishga Tushirish
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Loyihani o'zingizning kompyuteringizda ishlatib ko'rish uchun quyidagi qadamlarni bajaring:
+
+1. **Loyihani yuklab oling:**
+   ```bash
+   git clone [https://github.com/kamalovic/portfolio.git](https://github.com/kamalovic/portfolio.git)
+   cd portfolio
+   
+2. **Loyihani ishga tushurish:**
+    ```bash
+   npm run dev
