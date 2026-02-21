@@ -76,7 +76,7 @@ const Stats = () => {
           </h2>
           {/* Formulalar shu yerda InlineMath orqali chiroyli ko'rsatiladi */}
           <p className="text-slate-400 mb-6 leading-relaxed">
-            Katta hajmdagi ma'lumotlar ustida amallar bajarish va ular asosida bashoratli modellarni qurish. Tahlillarda chiziqli regressiya <InlineMath math="y = \beta_0 + \beta_1 x + \epsilon" /> va o'rtacha kvadratik og'ish <InlineMath math="\sigma = \sqrt{\frac{\sum(x_i - \mu)^2}{N}}" /> kabi matematik modellarni keng qo'llayman.
+            Katta hajmdagi ma'lumotlar ustida amallar bajarish va ular asosida bashoratli modellarni qurish. Tahlillarda chiziqli regressiya <InlineMath math={"y = \\beta_0 + \\beta_1 x + \\epsilon"} /> va o'rtacha kvadratik og'ish <InlineMath math={"\\sigma = \\sqrt{\\frac{\\sum(x_i - \\mu)^2}{N}}"} /> kabi matematik modellarni keng qo'llayman.
           </p>
           <div className="space-y-4">
             <div>
