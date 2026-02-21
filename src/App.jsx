@@ -18,8 +18,8 @@ function App() {
       {/* Footer qismi */}
       <footer className="py-6 text-center border-t border-slate-900 bg-slate-950">
         <p className="text-slate-500 text-sm font-mono">
-          &copy; {currentYear} Kamalovic. Barcha huquqlar himoyalangan. <br/>
-          <span className="text-xs text-slate-600">Built with React & Tailwind CSS</span>
+          &copy; {currentYear}  <br/>
+          <span className="text-xs text-slate-600">Developed by & Kamalovic</span>
         </p>
       </footer>
     </div>
