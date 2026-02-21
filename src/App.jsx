@@ -18,8 +18,8 @@ function App() {
       {/* Footer qismi */}
       <footer className="py-6 text-center border-t border-slate-900 bg-slate-950">
         <p className="text-slate-500 text-sm font-mono">
-          &copy; {currentYear}  <br/>
-          <span className="text-xs text-slate-900"> & Kamalovic</span>
+          &copy; {currentYear} All rights reserved <br/>
+          <span className="text-xs text-slate-600"> Developed by & KAMALOVIC </span>
         </p>
       </footer>
     </div>
