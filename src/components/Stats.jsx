@@ -12,7 +12,7 @@ const leetcodeData = [
 
 const Stats = () => {
   return (
-    <section className="py-20 px-6 bg-slate-950">
+    <section id={'stats'} className="py-20 px-6 bg-slate-950">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
 
         {/* LeetCode statistikasi */}
@@ -76,7 +76,7 @@ const Stats = () => {
           </h2>
           {/* Formulalar shu yerda InlineMath orqali chiroyli ko'rsatiladi */}
           <p className="text-slate-400 mb-6 leading-relaxed">
-            Katta hajmdagi ma'lumotlar ustida amallar bajarish va ular asosida bashoratli modellarni qurish. Tahlillarda chiziqli regressiya <span className="font-serif italic text-slate-200 tracking-wider">y = &beta;<sub>0</sub> + &beta;<sub>1</sub>x + &epsilon;</span> va o'rtacha kvadratik og'ish <span className="font-serif italic text-slate-200 tracking-wider">&sigma; = &radic;(&Sigma;(x<sub>i</sub> - &mu;)<sup>2</sup> / N)</span> kabi matematik modellarni keng qo'llayman.
+            Katta hajmdagi ma'lumotlar ustida amallar bajarish va ular asosida bashoratli modellarni qurish. Tahlillarda chiziqli regressiya <InlineMath math={"y = \\beta_0 + \\beta_1 x + \\epsilon"} /> va o'rtacha kvadratik og'ish <InlineMath math={"\\sigma = \\sqrt{\\frac{\\sum(x_i - \\mu)^2}{N}}"} /> kabi matematik modellarni keng qo'llayman.
           </p>
           <div className="space-y-4">
             <div>
