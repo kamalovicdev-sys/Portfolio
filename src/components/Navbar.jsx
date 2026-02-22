@@ -9,18 +9,18 @@ const Navbar = () => {
     { name: 'Bosh sahifa', href: '#' },
     { name: 'Tajriba', href: '#experience' },
     { name: 'Loyihalar', href: '#projects' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Bog\'lanish', href: '#contact' },
   ];
 
   const scrollToSection = (e, href) => {
     e.preventDefault();
-    setIsOpen(false); // Telefon menyusini yopish
-
+    setIsOpen(false); 
+    
     if (href === '#') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
     }
-
+    
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -31,7 +31,7 @@ const Navbar = () => {
     <nav className="fixed w-full z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between h-20">
-
+          
           {/* Logo qismi */}
           <div className="flex-shrink-0 font-bold text-xl tracking-wider flex items-center gap-2 cursor-pointer" onClick={(e) => scrollToSection(e, '#')}>
             <Terminal className="text-green-500" size={24} />
@@ -42,7 +42,7 @@ const Navbar = () => {
           {/* Kompyuter uchun menyu */}
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link, index) => (
-              <a
+              <a 
                 key={index}
                 href={link.href}
                 onClick={(e) => scrollToSection(e, link.href)}
@@ -53,17 +53,25 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* Telefon uchun Gamburger tugmasi */}
+          {/* Telefon uchun Gamburger tugmasi (Accessibility bilan) */}
           <div className="md:hidden flex items-center">
-            <button onClick={() => setIsOpen(!isOpen)} className="text-slate-300 hover:text-white focus:outline-none" aria-label={isOpen ? "Menyuni yopish" : "Asosiy menyuni ochish"} aria-expanded={isOpen}>
+            <button 
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-slate-300 hover:text-white focus:outline-none"
+              aria-label={isOpen ? "Menyuni yopish" : "Asosiy menyuni ochish"} 
+              aria-expanded={isOpen}
+            >
               {isOpen ? <X size={28} aria-hidden="true" /> : <Menu size={28} aria-hidden="true" />}
             </button>
           </div>
 
+        </div>
+      </div>
+
       {/* Telefon uchun ochiladigan menyu (Animatsiya bilan) */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
+          <motion.div 
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
@@ -71,7 +79,7 @@ const Navbar = () => {
           >
             <div className="px-6 pt-2 pb-6 space-y-2 shadow-xl">
               {navLinks.map((link, index) => (
-                <a
+                <a 
                   key={index}
                   href={link.href}
                   onClick={(e) => scrollToSection(e, link.href)}
