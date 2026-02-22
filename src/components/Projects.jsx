@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FolderGit2, ExternalLink, Smartphone, Server } from 'lucide-react';
+import {FolderGit2, ExternalLink, Smartphone, Server, Database} from 'lucide-react';
 
 const projects = [
   {
@@ -9,16 +9,18 @@ const projects = [
     icon: <Smartphone className="text-blue-400" size={24} />
   },
   {
-    title: "Bunjang Clone",
-    description: "Mashhur elektron tijorat platformasining klon versiyasi. Mahsulotlar katalogi va foydalanuvchilar o'rtasidagi tranzaksiyalar uchun ishonchli API.",
-    tech: ["Django", "Python", "REST API", "SQL"],
+    title: "Dorixonalar tarmog'i  ",
+    description: "Dorixonalar tarmog'ida ma'lumotlar tahlili va zaxiralarni optimallashtirish: ABC/XYZ va Market Basket Analysis metodologiyasi, Safety Stock, Inventory Turnover zahiralarni boshqarish hamda FEFO tizimi va Time Series",
+
+
+    tech: ["Python", "SQL", "Power BI", "ML"],
     icon: <Server className="text-green-400" size={24} />
   },
   {
-    title: "Promo Bot",
-    description: "Telegram foydalanuvchilari uchun maxsus promo-kodlar tarqatuvchi va ma'lumotlarni yig'uvchi avtomatlashtirilgan bot tizimi.",
-    tech: ["Flask", "Python", "Telegram API", "Data Processing"],
-    icon: <Server className="text-yellow-400" size={24} />
+    title: "Real Estate",
+    description: "Dynamic Pricing uchun (Linear regression) yordamida tahlilar. Marketing samaradorligi ROI tahlilari, Customer Segmentation va sotuvni Forecasting qilish",
+    tech: ["power BI", "Python", "SQL", "Math"],
+    icon: <Database className="text-yellow-400" size={24} />
   },
   {
     title: "Myteam Mobile",
