@@ -55,15 +55,10 @@ const Navbar = () => {
 
           {/* Telefon uchun Gamburger tugmasi */}
           <div className="md:hidden flex items-center">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-slate-300 hover:text-white focus:outline-none"
-            >
-              {isOpen ? <X size={28} /> : <Menu size={28} />}
+            <button onClick={() => setIsOpen(!isOpen)} className="text-slate-300 hover:text-white focus:outline-none" aria-label={isOpen ? "Menyuni yopish" : "Asosiy menyuni ochish"} aria-expanded={isOpen}>
+              {isOpen ? <X size={28} aria-hidden="true" /> : <Menu size={28} aria-hidden="true" />}
             </button>
           </div>
-        </div>
-      </div>
 
       {/* Telefon uchun ochiladigan menyu (Animatsiya bilan) */}
       <AnimatePresence>
