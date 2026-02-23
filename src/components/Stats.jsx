@@ -82,19 +82,19 @@ const Stats = () => {
             <div>
               <div className="flex justify-between text-sm mb-1">
                 <span className="text-slate-300">Python (Pandas, NumPy)</span>
-                <span className="text-green-400">100%</span>
+                <span className="text-green-400">95%</span>
               </div>
               <div className="w-full bg-slate-800 rounded-full h-2">
-                <div className="bg-green-500 h-2 rounded-full" style={{ width: '100%' }}></div>
+                <div className="bg-green-500 h-2 rounded-full" style={{ width: '95%' }}></div>
               </div>
             </div>
             <div>
               <div className="flex justify-between text-sm mb-1">
                 <span className="text-slate-300">SQL / PostgreSQL</span>
-                <span className="text-blue-400">90%</span>
+                <span className="text-blue-400">85%</span>
               </div>
               <div className="w-full bg-slate-800 rounded-full h-2">
-                <div className="bg-blue-500 h-2 rounded-full" style={{ width: '90%' }}></div>
+                <div className="bg-blue-500 h-2 rounded-full" style={{ width: '85%' }}></div>
               </div>
             </div>
           </div>
