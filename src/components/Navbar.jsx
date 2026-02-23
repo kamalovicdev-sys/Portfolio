@@ -9,7 +9,7 @@ const Navbar = () => {
     { name: 'Bosh sahifa', href: '#' },
     { name: 'Tajriba', href: '#experience' },
     { name: 'Loyihalar', href: '#projects' },
-    { name: 'Bog\'lanish', href: '#contact' },
+    { name: 'Contact', href: '#contact' },
   ];
 
   const scrollToSection = (e, href) => {
