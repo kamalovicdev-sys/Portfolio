@@ -2,6 +2,27 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Server, Database, TerminalSquare, Send } from 'lucide-react';
 
+// Chap qismdagi elementlar ketma-ketligi uchun variantlar
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15, // Har bir element 0.15 soniya farq bilan chiqadi
+      delayChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, x: -30 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.6, ease: "easeOut" }
+  },
+};
+
 const Hero = () => {
   const [text, setText] = useState('');
 
@@ -51,72 +72,82 @@ const Hero = () => {
 
         {/* Chap qism: Matn va Ma'lumot */}
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
           className="w-full"
         >
-          <div className="flex items-center gap-2 mb-3 md:mb-4 text-green-400">
+          <motion.div variants={itemVariants} className="flex items-center gap-2 mb-3 md:mb-4 text-green-400">
             <Server size={20} className="md:w-6 md:h-6" />
             <Database size={20} className="md:w-6 md:h-6" />
             <span className="font-mono text-xs md:text-sm tracking-wider">DATA & BACKEND ENGINEER</span>
-          </div>
+          </motion.div>
 
-          <h2 className="text-xl md:text-3xl font-medium text-slate-300 mb-6 tracking-wide">
+          <motion.h2 variants={itemVariants} className="text-xl md:text-3xl font-medium text-slate-300 mb-6 tracking-wide">
             Mavlonxon <span className="text-white font-bold">Mamadaliev</span>
-          </h2>
+          </motion.h2>
 
           {/* SEO: Sahifadagi yagona H1 sarlavha */}
-          <h1 className="text-3xl sm:text-3xl md:text-6xl font-bold mb-3 md:mb-6 text-slate-100 tracking-wide leading-tight">
+          <motion.h1 variants={itemVariants} className="text-3xl sm:text-3xl md:text-6xl font-bold mb-3 md:mb-6 text-slate-100 tracking-wide leading-tight">
             Murakkab muammolarga <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">
               soddalashgan yechimlar.
             </span>
-          </h1>
+          </motion.h1>
 
-          <p className="text-slate-400 text-sm md:text-lg mb-6 md:mb-8 max-w-lg leading-relaxed tracking-wide">
+          <motion.p variants={itemVariants} className="text-slate-400 text-sm md:text-lg mb-6 md:mb-8 max-w-lg leading-relaxed tracking-wide">
             Ma'lumotlar tahlili va yuqori yuklanishga bardosh beruvchi, ishonchli backend tizimlarini qurishga ixtisoslashganman
-          </p>
+          </motion.p>
 
-          <div className="flex flex-wrap gap-3 md:gap-4">
-            <button
+          <motion.div variants={itemVariants} className="flex flex-wrap gap-3 md:gap-4">
+            <motion.button
+              whileHover={{ scale: 1.05, boxShadow: "0 0 15px rgba(34, 197, 94, 0.4)" }}
+              whileTap={{ scale: 0.95 }}
               onClick={() => scrollToSection('projects')}
               className="px-4 py-2.5 md:px-6 md:py-3 bg-green-500 hover:bg-green-600 text-slate-900 text-sm md:text-base font-semibold rounded-lg transition-colors flex items-center gap-2"
             >
               <TerminalSquare size={18} />
               Loyihalar
-            </button>
-            <button
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.05, backgroundColor: "rgba(51, 65, 85, 0.5)" }}
+              whileTap={{ scale: 0.95 }}
               onClick={() => scrollToSection('contact')}
               className="px-4 py-2.5 md:px-6 md:py-3 border border-slate-700 hover:border-slate-500 text-slate-300 text-sm md:text-base font-semibold rounded-lg transition-colors flex items-center gap-2"
             >
               <Send size={16} />
               Bog'lanish
-            </button>
-          </div>
+            </motion.button>
+          </motion.div>
         </motion.div>
 
         {/* O'ng qism: Terminal Animatsiyasi */}
         <motion.div
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="w-full max-w-full bg-slate-900 rounded-xl overflow-hidden border border-slate-800 shadow-2xl"
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="w-full max-w-full"
         >
-          <div className="flex items-center px-4 py-2.5 bg-slate-950 border-b border-slate-800">
-            <div className="flex gap-2">
-              <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-red-500"></div>
-              <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-yellow-500"></div>
-              <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-green-500"></div>
+          <motion.div
+            animate={{ y: [0, -10, 0] }} // Havoda suzish effekti
+            transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
+            whileHover={{ scale: 1.02, boxShadow: "0 20px 40px -10px rgba(74, 222, 128, 0.2)" }}
+            className="bg-slate-900 rounded-xl overflow-hidden border border-slate-800 shadow-2xl cursor-default"
+          >
+            <div className="flex items-center px-4 py-2.5 bg-slate-950 border-b border-slate-800">
+              <div className="flex gap-2">
+                <motion.div whileHover={{ scale: 1.5 }} className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-red-500"></motion.div>
+                <motion.div whileHover={{ scale: 1.5 }} className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-yellow-500"></motion.div>
+                <motion.div whileHover={{ scale: 1.5 }} className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-green-500"></motion.div>
+              </div>
+              <div className="mx-auto text-slate-500 text-[10px] md:text-xs font-mono tracking-wider">bash - terminal</div>
             </div>
-            <div className="mx-auto text-slate-500 text-[10px] md:text-xs font-mono tracking-wider">bash - terminal</div>
-          </div>
 
-          {/* Terminal balandligi va shrifti telefonda qisqartirildi */}
-          <div className="p-4 md:p-6 h-48 md:h-64 overflow-hidden font-mono text-xs md:text-[15px] leading-relaxed text-green-400 whitespace-pre-wrap break-words">
-            {text}
-            <span className="animate-pulse">|</span>
-          </div>
+            <div className="p-4 md:p-6 h-48 md:h-64 overflow-hidden font-mono text-xs md:text-[15px] leading-relaxed text-green-400 whitespace-pre-wrap break-words">
+              {text}
+              <span className="animate-pulse">|</span>
+            </div>
+          </motion.div>
         </motion.div>
 
       </div>
