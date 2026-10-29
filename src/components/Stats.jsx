@@ -1,8 +1,7 @@
-import { motion } from 'framer-motion';
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts';
 import { Code2, BarChart3 } from 'lucide-react';
-import 'katex/dist/katex.min.css'; // Formulalar chiroyli chiqishi uchun CSS
-import { InlineMath } from 'react-katex'; // Formulani o'qiydigan komponent
+import { useLanguage, useTheme } from '../context/contexts';
+import TiltCard from './TiltCard';
 
 const leetcodeData = [
   { name: 'Easy', value: 145, color: '#22c55e' },
@@ -10,24 +9,37 @@ const leetcodeData = [
   { name: 'Hard', value: 20, color: '#ef4444' },
 ];
 
+// Grafik tooltipi uchun ranglar (kunduzgi / tungi mavzu)
+const tooltipColors = {
+  light: { backgroundColor: '#f1f4f7', borderColor: '#e2e8f0', color: '#0f172a' },
+  dark: { backgroundColor: '#0f172a', borderColor: '#1e293b', color: '#f8fafc' },
+};
+
 const Stats = () => {
+  const { t } = useLanguage();
+  const { isDark } = useTheme();
+  const tooltipStyle = isDark ? tooltipColors.dark : tooltipColors.light;
+
   return (
-    <section id={'stats'} className="py-20 px-6 bg-slate-950">
+    <section id={'stats'} className="py-20 px-6 bg-surface dark:bg-slate-950">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
 
-        {/* LeetCode statistikasi */}
-        <motion.div
+        {/* LeetCode statistikasi (3D kartochka: grafik va sarlavha oldinga chiqib turadi) */}
+        <TiltCard
+          maxTilt={7}
+          wrapperClassName="h-full"
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="bg-slate-900 p-8 rounded-xl border border-slate-800"
+          className="bg-surface-card dark:bg-slate-900 p-8 rounded-xl border border-slate-200 dark:border-slate-800 h-full hover:border-green-400/40 hover:shadow-[0_25px_40px_-15px_rgba(74,222,128,0.25)] transition-[border-color,box-shadow] duration-300"
         >
-          <h2 className="text-2xl font-bold text-slate-100 mb-6 flex items-center gap-3">
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-6 flex items-center gap-3 translate-z-8">
             <Code2 className="text-yellow-500" />
-            Algoritmik qobiliyat (LeetCode)
+            {t.stats.leetcodeTitle}
           </h2>
-          <div className="h-64 relative">
-            <ResponsiveContainer width="100%" height="100%">
+          <div className="h-64 relative translate-z-12">
+            {/* initialDimension — prerender (server) paytida o'lchab bo'lmaydi, shu o'lchamda chiziladi */}
+            <ResponsiveContainer width="100%" height="100%" initialDimension={{ width: 320, height: 256 }}>
               <PieChart>
                 <Pie
                   data={leetcodeData}
@@ -43,62 +55,64 @@ const Stats = () => {
                   ))}
                 </Pie>
                 <Tooltip
-                  contentStyle={{ backgroundColor: '#0f172a', borderColor: '#1e293b', color: '#f8fafc' }}
-                  itemStyle={{ color: '#f8fafc' }}
+                  contentStyle={tooltipStyle}
+                  itemStyle={{ color: tooltipStyle.color }}
                 />
               </PieChart>
             </ResponsiveContainer>
             <div className="absolute inset-0 flex items-center justify-center flex-col pointer-events-none">
-              <span className="text-3xl font-bold text-slate-200">250+</span>
-              <span className="text-xs text-slate-500">Masalalar</span>
+              <span className="text-3xl font-bold text-slate-800 dark:text-slate-200">250+</span>
+              <span className="text-xs text-slate-600 dark:text-slate-400">{t.stats.problems}</span>
             </div>
           </div>
-          <div className="flex justify-center gap-6 mt-4 text-sm font-mono">
+          <div className="flex justify-center gap-6 mt-4 text-sm font-mono translate-z-6">
             {leetcodeData.map(item => (
               <div key={item.name} className="flex items-center gap-2">
                 <div className="w-3 h-3 rounded-full" style={{ backgroundColor: item.color }}></div>
-                <span className="text-slate-400">{item.name}</span>
+                <span className="text-slate-600 dark:text-slate-400">{item.name}</span>
               </div>
             ))}
           </div>
-        </motion.div>
+        </TiltCard>
 
-        {/* Data Analysis ko'nikmalari */}
-        <motion.div
+        {/* Data Analysis ko'nikmalari (3D kartochka) */}
+        <TiltCard
+          maxTilt={7}
+          wrapperClassName="h-full"
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="bg-slate-900 p-8 rounded-xl border border-slate-800"
+          className="bg-surface-card dark:bg-slate-900 p-8 rounded-xl border border-slate-200 dark:border-slate-800 h-full hover:border-green-400/40 hover:shadow-[0_25px_40px_-15px_rgba(74,222,128,0.25)] transition-[border-color,box-shadow] duration-300"
         >
-          <h2 className="text-2xl font-bold text-slate-100 mb-6 flex items-center gap-3">
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-6 flex items-center gap-3 translate-z-8">
             <BarChart3 className="text-blue-500" />
-            Data Analysis
+            {t.stats.analysisTitle}
           </h2>
-          {/* Formulalar shu yerda InlineMath orqali chiroyli ko'rsatiladi */}
-          <p className="text-slate-400 mb-6 leading-relaxed">
-            Katta hajmdagi ma'lumotlar ustida amallar bajarish va ular asosida bashoratli modellarni qurish. Tahlillarda chiziqli regressiya <span className="font-serif italic text-slate-200 tracking-wider">y = &beta;<sub>0</sub> + &beta;<sub>1</sub>x + &epsilon;</span> va o'rtacha kvadratik og'ish <span className="font-serif italic text-slate-200 tracking-wider">&sigma; = &radic;(&Sigma;(x<sub>i</sub> - &mu;)<sup>2</sup> / N)</span> kabi matematik modellarni keng qo'llayman.
+          {/* Formulalar oddiy HTML (sub/sup) bilan ko'rsatiladi — og'ir KaTeX kutubxonasisiz */}
+          <p className="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed translate-z-4">
+            {t.stats.analysisIntro}<span className="font-serif italic text-slate-800 dark:text-slate-200 tracking-wider">y = &beta;<sub>0</sub> + &beta;<sub>1</sub>x + &epsilon;</span>{t.stats.analysisMiddle}<span className="font-serif italic text-slate-800 dark:text-slate-200 tracking-wider">&sigma; = &radic;(&Sigma;(x<sub>i</sub> - &mu;)<sup>2</sup> / N)</span>{t.stats.analysisOutro}
           </p>
-          <div className="space-y-4">
+          <div className="space-y-4 translate-z-10">
             <div>
               <div className="flex justify-between text-sm mb-1">
-                <span className="text-slate-300">Python (Pandas, NumPy)</span>
-                <span className="text-green-400">95%</span>
+                <span className="text-slate-700 dark:text-slate-300">Python (Pandas, NumPy)</span>
+                <span className="text-green-800 dark:text-green-400">95%</span>
               </div>
-              <div className="w-full bg-slate-800 rounded-full h-2">
+              <div className="w-full bg-slate-200 dark:bg-slate-800 rounded-full h-2">
                 <div className="bg-green-500 h-2 rounded-full" style={{ width: '95%' }}></div>
               </div>
             </div>
             <div>
               <div className="flex justify-between text-sm mb-1">
-                <span className="text-slate-300">SQL / PostgreSQL</span>
-                <span className="text-blue-400">85%</span>
+                <span className="text-slate-700 dark:text-slate-300">SQL / PostgreSQL</span>
+                <span className="text-blue-700 dark:text-blue-400">85%</span>
               </div>
-              <div className="w-full bg-slate-800 rounded-full h-2">
+              <div className="w-full bg-slate-200 dark:bg-slate-800 rounded-full h-2">
                 <div className="bg-blue-500 h-2 rounded-full" style={{ width: '85%' }}></div>
               </div>
             </div>
           </div>
-        </motion.div>
+        </TiltCard>
 
       </div>
     </section>
