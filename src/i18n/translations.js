@@ -32,7 +32,7 @@ const translations = {
       education: "Ta'lim",
       items: {
         mehrzod: {
-          role: "IT infratuzilma bo'limi rahbari",
+          role: "Team Lead",
           company: "Mehrzod Business Group · Toshkent",
           period: "Yan 2024 — Hozirgacha",
           details: [
@@ -148,7 +148,7 @@ const translations = {
       education: "Education",
       items: {
         mehrzod: {
-          role: "Head of IT Infrastructure",
+          role: "Team Lead",
           company: "Mehrzod Business Group · Tashkent",
           period: "Jan 2024 — Present",
           details: [
