@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Github, Linkedin, Send, Terminal, CheckCircle2, XCircle } from 'lucide-react';
+import { Mail, Github, Linkedin, Send, BookOpen, Terminal, CheckCircle2, XCircle } from 'lucide-react';
 import { useLanguage } from '../context/contexts';
 import TiltCard from './TiltCard';
 
@@ -26,6 +26,13 @@ const socialLinks = [
     icon: <Send size={22} className="text-blue-500" />,
     handle: "@kama1ovic",
     hoverClass: "hover:border-blue-500/50 hover:shadow-[0_0_15px_-3px_rgba(59,130,246,0.2)]"
+  },
+  {
+    name: "Blog",
+    url: "https://blog.kamalovic.uz/",
+    icon: <BookOpen size={22} className="text-orange-500 dark:text-orange-400" />,
+    handle: "blog.kamalovic.uz",
+    hoverClass: "hover:border-orange-500/50 hover:shadow-[0_0_15px_-3px_rgba(249,115,22,0.2)]"
   }
 ];
 

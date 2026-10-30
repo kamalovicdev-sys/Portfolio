@@ -10,6 +10,7 @@ const socialProfiles = [
   'https://github.com/kamalovicdev-sys',
   'https://linkedin.com/in/kamalovic',
   'https://t.me/kama1ovic',
+  'https://blog.kamalovic.uz/',
 ];
 
 // Har bir til o'z sahifasiga ega: / — inglizcha (standart), /uz/ — o'zbekcha
