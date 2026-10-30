@@ -34,7 +34,7 @@ const translations = {
         mehrzod: {
           role: "Team Lead",
           company: "Mehrzod Business Group · Toshkent",
-          period: "Yan 2024 — Hozirgacha",
+          period: "Yan 2025 — Hozirgacha",
           details: [
             "IT yo'nalishiga mas'ulman: ichki tizimlar, raqamli mahsulotlar ishlab chiqish va ma'lumotlar tahlili. Loyihalarni vazifa qo'yilishidan ishga tushirishgacha olib boraman.",
             "SaaS mahsulotlar: Smart Distribution (distribyutorlar uchun Telegram Mini App), MyTeam Plus (multi-tenant farm-CRM), MyTeam (dala xodimlari nazorati), do'konlar uchun POS tizimi, Medicy va Telegram marketpleys.",
@@ -150,7 +150,7 @@ const translations = {
         mehrzod: {
           role: "Team Lead",
           company: "Mehrzod Business Group · Tashkent",
-          period: "Jan 2024 — Present",
+          period: "Jan 2025 — Present",
           details: [
             "Responsible for the IT division: internal systems, digital product development and data analytics. I run projects from problem statement to launch.",
             "SaaS products: Smart Distribution (Telegram Mini App for distributors), MyTeam Plus (multi-tenant pharma CRM), MyTeam (field staff tracking), a POS system for shops, Medicy and a Telegram marketplace.",
