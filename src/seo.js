@@ -9,8 +9,8 @@ const ogLocales = { en: 'en_US', uz: 'uz_UZ' };
 const socialProfiles = [
   'https://github.com/kamalovicdev-sys',
   'https://linkedin.com/in/kamalovic',
-  'https://t.me/kama1ovic',
   'https://blog.kamalovic.uz/',
+  'https://t.me/kama1ovic',
 ];
 
 // Har bir til o'z sahifasiga ega: / — inglizcha (standart), /uz/ — o'zbekcha
